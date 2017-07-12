@@ -1,0 +1,30 @@
+{
+  "name": "@mzvonar/mergein",
+  "version": "0.0.1",
+  "description": "Merge new object with value at provided path in context object",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzvonar/mergeIn.git"
+  },
+  "keywords": [
+    "merge",
+    "mergeIn"
+  ],
+  "author": "Martin Zvonar <riffmaker@gmail.com> (martinzvonar.sk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mzvonar/mergeIn/issues"
+  },
+  "homepage": "https://github.com/mzvonar/mergeIn#readme",
+  "devDependencies": {
+    "coveralls": "2.13.1",
+    "expect": "1.20.2",
+    "istanbul": "0.4.5",
+    "mocha": "3.4.2"
+  }
+}
