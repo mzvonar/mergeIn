@@ -1,4 +1,4 @@
-setIn
+setIn [![Build Status](https://travis-ci.org/mzvonar/mergeIn.svg?branch=master)](https://travis-ci.org/mzvonar/mergeIn) [![Coverage Status](https://coveralls.io/repos/github/mzvonar/mergeIn/badge.svg?branch=master)](https://coveralls.io/github/mzvonar/mergeIn?branch=master) [![npm version](https://badge.fury.io/js/%40mzvonar%2Fmergein.svg)](https://badge.fury.io/js/%40mzvonar%2Fmergein)
 =========
 
 Sets value in object by path. Path can be string or array (e.g. ['user', 'profile', 'gender']).  
