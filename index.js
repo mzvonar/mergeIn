@@ -17,35 +17,14 @@ function mergeValue(context, value) {
     }
 }
 
-/**
- * Gets value from object by path. If any part of path is undefined it returns undefined or defaultValue if provided
- * @param {Object} context
- * @param {Array|string} path
- * @param {*} value
- * @return {Object}
- */
-module.exports = function mergeIn(context, path, value) {
-    if(!value) {
-        value = path;
-        path = undefined;
-    }
-
+function mergeInRecursive(context, path, value) {
     var valueType = Object.prototype.toString.call(value);
     if(valueType !== '[object Object]' && valueType !== '[object Array]') {
         throw new Error('value has to be either Object or Array');
     }
 
     if(!path) {
-        var contextType = Object.prototype.toString.call(context);
-        if(contextType === '[object Array]') {
-            return [].concat(context, value);
-        }
-        else if(contextType === '[object Object]') {
-            return Object.assign({}, context, value);
-        }
-        else {
-            throw new Error('Trying to add property to ' + contextType);
-        }
+        return mergeValue(context, value);
     }
 
     if(typeof path === 'string') {
@@ -62,7 +41,7 @@ module.exports = function mergeIn(context, path, value) {
         context = isNaN(currentPathPart) ? {} : [];
     }
 
-    var currentValue = path.length === 0 ? mergeValue(context[currentPathPart], value) : mergeIn(context[currentPathPart], path, value);
+    var currentValue = path.length === 0 ? mergeValue(context[currentPathPart] || (isNaN(currentPathPart) ? {} : []), value) : mergeInRecursive(context[currentPathPart], path, value);
 
     var contextType2 = Object.prototype.toString.call(context);
     if(contextType2 === '[object Array]') {
@@ -79,4 +58,24 @@ module.exports = function mergeIn(context, path, value) {
     else {
         throw new Error('Trying to add property to ' + contextType2);
     }
+}
+
+/**
+ * Merges value with value in path. If path does not exist it is created
+ * @param {Object} context
+ * @param {Array|string} path
+ * @param {*} value
+ * @return {Object}
+ */
+module.exports = function mergeIn(context, path, value) {
+    if(!value) {
+        value = path;
+        path = undefined;
+    }
+
+    if(!context) {
+        throw new Error('Context is falsy.');
+    }
+
+    return mergeInRecursive(context, path, value);
 };
