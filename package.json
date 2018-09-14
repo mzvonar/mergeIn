@@ -1,6 +1,6 @@
 {
   "name": "@mzvonar/mergein",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Merge new object with value at provided path in context object",
   "main": "dist/index.js",
   "module": "index.js",
