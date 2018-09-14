@@ -15,9 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/mzvonar/mergeIn.git"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "merge",
     "mergeIn"
