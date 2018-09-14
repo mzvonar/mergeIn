@@ -3,7 +3,6 @@
   "version": "0.1.6",
   "description": "Merge new object with value at provided path in context object",
   "main": "dist/index.js",
-  "module": "index.js",
   "scripts": {
     "build": "NODE_ENV=production babel index.js -d dist --ignore 'test/*' --copy-files",
     "prepublish": "npm run build",
@@ -16,8 +15,7 @@
     "url": "git+https://github.com/mzvonar/mergeIn.git"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "keywords": [
     "merge",
