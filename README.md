@@ -1,7 +1,7 @@
-setIn [![Build Status](https://travis-ci.org/mzvonar/mergeIn.svg?branch=master)](https://travis-ci.org/mzvonar/mergeIn) [![Coverage Status](https://coveralls.io/repos/github/mzvonar/mergeIn/badge.svg?branch=master)](https://coveralls.io/github/mzvonar/mergeIn?branch=master) [![npm version](https://badge.fury.io/js/%40mzvonar%2Fmergein.svg)](https://badge.fury.io/js/%40mzvonar%2Fmergein)
+mergeIn [![Build Status](https://travis-ci.org/mzvonar/mergeIn.svg?branch=master)](https://travis-ci.org/mzvonar/mergeIn) [![Coverage Status](https://coveralls.io/repos/github/mzvonar/mergeIn/badge.svg?branch=master)](https://coveralls.io/github/mzvonar/mergeIn?branch=master) [![npm version](https://badge.fury.io/js/%40mzvonar%2Fmergein.svg)](https://badge.fury.io/js/%40mzvonar%2Fmergein)
 =========
 
-Sets value in object by path. Path can be string or array (e.g. ['user', 'profile', 'gender']).  
+Merges value in object by path with provided object. Path can be string or array (e.g. ['user', 'profile', 'gender']).  
 If any part of path doesn't exist it is created. Always returns new copy of object.
 
 ## Installation
@@ -11,7 +11,7 @@ If any part of path doesn't exist it is created. Always returns new copy of obje
 ## Usage
 
 ```javascript
-const setIn = require('@mzvonar/mergein');
+const mergeIn = require('@mzvonar/mergein');
   
 const context = {
     user: {
@@ -21,7 +21,7 @@ const context = {
     }
 };
   
-const newContext = setIn(context, ['user', 'profile'], {
+const newContext = mergeIn(context, ['user', 'profile'], {
     gender: 'male',
     address: {
         country: 'slovakia'
@@ -44,7 +44,7 @@ const newContext = setIn(context, ['user', 'profile'], {
 ``` 
 
 ```javascript  
-const newContext = setIn(context, 'user', {
+const newContext = mergeIn(context, 'user', {
     address: {
       country: 'slovakia'
     }
